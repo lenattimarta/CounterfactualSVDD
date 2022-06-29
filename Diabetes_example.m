@@ -5,9 +5,9 @@ clc; clear all; close all;
 I=readtable('T2DM_dataset.csv');
 %I=I(randperm(size(I, 1)), :);
 filepath='';
-%% Prova senza comorbidità (solo ipertensione)
+
 %high risk T2DM =1, low risk T2DM = -1
-X=[I.Sex, I.Age_1_year_before,double(I.sBP),double(I.BMI),double(I.LDL),double(I.HDL),double(I.TG),double(I.FBS),double(I.Total_Cholesterol), I.HTN];
+X=[I.Sex, I.Age_1_year_before,double(I.sBP),double(I.BMI),double(I.LDL),double(I.HDL),double(I.TG),double(I.FBS),double(I.Total_Cholesterol), I.HTN]; %scaled features
 Y=I.Diabetes;
 Y(Y==0)=-1;
 nFeat=size(X,2);
